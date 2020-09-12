@@ -31,7 +31,7 @@ private:
 public:
 	void store( int nNumer, int nDenom );
 	void print( void ) const;
-	//friend void store( int nNumer, int nDenom, CFraction &fr); 멤버 변수가 아니다. fr에 대한 처리를 위해 매개변수로 받는다. 
+	//friend void store( int nNumer, int nDenom, CFraction &fr); 멤버 가 아니다. fr에 대한 처리를 위해 매개변수로 받는다. 
 	//따라서 cpp에 CFraction:: 필요 없고, main에서 fr.store로 부르지 않는다. 
 	//멤버함수가 아님에도 멤버변수에 접근할 수 있고, operator overloading에(만) 쓰인다. 
 	
