@@ -5,7 +5,7 @@ using namespace std;
 #include "Fraction.h"
 
 
-CFraction::CFraction() //cpp ÆÄÀÏ¿¡ ÇÔ¼ö ±¸ÇöÇÏ´Â °æ¿ì 'CFraction::' ¸¦ »ç¿ëÇØ¼­ class¿¡ Á¢±Ù.
+CFraction::CFraction() //cpp íŒŒì¼ì— í•¨ìˆ˜ êµ¬í˜„í•˜ëŠ” ê²½ìš° 'CFraction::' ë¥¼ ì‚¬ìš©í•´ì„œ classì— ì ‘ê·¼.
 {
 	m_nNumerator   = 0;
 	m_nDenominator = 1;
@@ -24,7 +24,7 @@ CFraction::CFraction( int nNumer, int nDenom )
 }
 
 
-CFraction::CFraction( const CFraction& fr ) //CFraction typeÀÇ reference º¯¼ö fr, ÀÇ¹Ì´Â ÀÔ·Â¹ŞÀº ºĞ¼ö¸¦ º¹»çÇØ¼­ »õ·Î¿î ºĞ¼ö »ı¼º(º¹»ç »ı¼ºÀÚ)
+CFraction::CFraction( const CFraction& fr ) //CFraction typeì˜ reference ë³€ìˆ˜ fr, ì˜ë¯¸ëŠ” ì…ë ¥ë°›ì€ ë¶„ìˆ˜ë¥¼ ë³µì‚¬í•´ì„œ ìƒˆë¡œìš´ ë¶„ìˆ˜ ìƒì„±(ë³µì‚¬ ìƒì„±ì)
 {
 	m_nNumerator   = fr.m_nNumerator  ;
 	m_nDenominator = fr.m_nDenominator;
@@ -37,12 +37,23 @@ CFraction::~CFraction()
 
 void CFraction::store( int nNumer, int nDenom )
 {
+	if(nDenom == 0) //ë¶„ëª¨ê°€ 0 ì¼ ê²½ìš° ì—ëŸ¬ë¥¼ ì¶œë ¥
+	{
+		cout << "Can not divide by 0!" << endl;
+		exit(100);
+	}
+	if(nDenom < 0) // ë¶„ëª¨ê°€ 0ë³´ë‹¤ ì‘ì€ ê²½ìš° printí•  ë•Œ ë¶„ìì— '-'ê¸°í˜¸ ë¶™ì´ê¸° ìœ„í•´
+	{
+		nDenom = -nDenom;
+		nNumer = -nNumer;
+	}
+
 	m_nNumerator   = nNumer;
 	m_nDenominator = nDenom;
 	return;
 }
 
-void CFraction::print() const //ÇÔ¼ö µÚÀÇ const´Â ÇÔ¼ö ³»¿¡¼­ ¸â¹ö º¯¼ö¸¦ ¹Ù²ÙÁö ¾Ê´Â´Ù´Â ÀÇ¹Ì.
+void CFraction::print() const //í•¨ìˆ˜ ë’¤ì˜ constëŠ” í•¨ìˆ˜ ë‚´ì—ì„œ ë©¤ë²„ ë³€ìˆ˜ë¥¼ ë°”ê¾¸ì§€ ì•ŠëŠ”ë‹¤ëŠ” ì˜ë¯¸.
 {
 //	m_nNumerator   = 0;
 //	m_nDenominator = 1;
