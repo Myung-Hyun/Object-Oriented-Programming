@@ -31,6 +31,10 @@ private:
 public:
 	void store( int nNumer, int nDenom );
 	void print( void ) const;
+	//friend void store( int nNumer, int nDenom ); 멤버 변수가 아니다. 
+	//따라서 cpp에 CFraction:: 필요 없고, main에서 fr.store로 부르지 않는다. 
+	//멤버함수가 아님에도 멤버변수에 접근할 수 있고, operator overloading에(만) 쓰인다. 
+	
 
 };//class 끝에 ; 붙여야 한다.
 
