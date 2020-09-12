@@ -32,8 +32,15 @@ CFraction::CFraction( const CFraction& fr ) //CFraction type의 reference 변수
 
 CFraction::~CFraction()
 {
-
 }
+
+int CFraction::GreatestComDiv( int nN1, int nN2 ) //약분해서 정규화하기 위해 최대공약수 함수 구현
+{
+	if (nN2 == 0)
+		return nN1;
+	else
+		return GreatestComDiv( nN2, nN1 % nN2 );
+} 
 
 void CFraction::store( int nNumer, int nDenom )
 {
@@ -48,8 +55,11 @@ void CFraction::store( int nNumer, int nDenom )
 		nNumer = -nNumer;
 	}
 
-	m_nNumerator   = nNumer;
-	m_nDenominator = nDenom;
+	int nGcd = GreatestComDiv (abs(nNumer), abs(nDenom));
+	this->m_nNumerator   = nNumer/nGcd;
+	this->m_nDenominator = nDenom/nGcd;
+	//m_nNumerator   = nNumer;  this 포인터 안 써도 된다. 입력 파라미터로 같은 class의 객체를 받는 경우 유용한 듯.
+	//m_nDenominator = nDenom;
 	return;
 }
 
