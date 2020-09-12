@@ -56,6 +56,8 @@ void CFraction::store( int nNumer, int nDenom )
 	}
 
 	int nGcd = GreatestComDiv (abs(nNumer), abs(nDenom));
+	
+	// 멤버함수 안에서 cout << this; 결과와 main 함수에서 CFraction fr의 &fr 출력 결과가 같다. 즉 객체를 생성하면 그 객체를 가리키는 poniter 변수 this.
 	this->m_nNumerator   = nNumer/nGcd;
 	this->m_nDenominator = nDenom/nGcd;
 	//m_nNumerator   = nNumer;  this 포인터 안 써도 된다. 입력 파라미터로 같은 class의 객체를 받는 경우 유용한 듯.
