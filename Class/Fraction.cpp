@@ -74,3 +74,12 @@ void CFraction::print() const //함수 뒤의 const는 함수 내에서 멤버 �
 	return;
 }
 
+void CFraction::add( const CFraction& fr )
+{
+	this->m_nNumerator = this->m_nNumerator*fr.m_nDenominator + fr.m_nNumerator*this->m_nDenominator;
+	this->m_nDenominator *= fr.m_nDenominator;
+
+	*this = CFraction( m_nNumerator, m_nDenominator ); //add 함수를 call한 CFraction 객체에 생성자로 생성한 객체 할당. 
+	return;
+}
+
