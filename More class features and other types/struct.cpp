@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-//구조체: 하나 이상의 변수를 그룹지어서 새로운 자료형을 정의하는 것. 클래스와 다를게 없어 보인다. 
+//구조체: 하나 이상의 변수를 그룹지어서 새로운 자료형을 정의하는 것. 
+//C++에서 모든 멤버가 public인 class를 struct라고 부른다. 
 
 struct sRectangle{ //클래스를 구조체로 바꾸기. (같은 동작을 하도록)
 	int m_nWidth ; //데이터 멤버로 선언
