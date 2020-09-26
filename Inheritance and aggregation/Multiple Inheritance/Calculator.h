@@ -1,7 +1,7 @@
 #include "Add.h"
 #include "Subtract.h"
 
-class Calculator : public Add, public Subtract //´ÙÁß »ó¼Ó
+class Calculator : public Add, public Subtract //ë‹¤ì¤‘ ìƒì†
 {
 public:
 	Calculator(double val1, double val2);
